@@ -5,4 +5,36 @@ spring:
     name: subscriber-ms
   jackson:
     time-zone: IST
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
+resilience4j:
+  retry:
+    instances:
+      my-retry:
+        max-attempts: 5
+        wait-duration: 2s
+        enable-exponential-backoff: true
+          
+  circuitbreaker:
+    instances:
+      my-circuitbreaker:
+        failure-rate-threshold: 10
+        
+  bulkhead:
+    instances:
+      my-bulkhead:
+        max-concurrent-calls: 10
+        max-wait-duration: 5s
+  
+  ratelimiter:
+    instances:
+      myRatelimit:
+        limit-refresh-period: 60s
+        limit-for-period: 5
+          
+          
       
