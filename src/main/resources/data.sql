@@ -1,0 +1,1 @@
+insert into subscriber (id,age,gender,name) values (1,20,'Male','Abhishek'),(2,19,'Male','John'),(3,25,'Female','Laura'),(4,29,'Female','Mary')
